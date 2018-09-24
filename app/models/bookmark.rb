@@ -1,2 +1,2 @@
-class bookmark
+class Bookmark
 end

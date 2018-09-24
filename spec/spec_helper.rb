@@ -1,15 +1,14 @@
 ENV['RACK_ENV'] = 'test'
 
-require '../app/controllers/app'
+require './app/app.rb'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-Capybara.app = Bookmark
+Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
-
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
   config.mock_with :rspec do |mocks|
@@ -20,7 +19,6 @@ end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
   SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
