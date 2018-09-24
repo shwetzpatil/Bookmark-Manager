@@ -5,8 +5,10 @@ feature 'Viewing the bookmarks' do
   end
 
   scenario 'display bookmarks list' do
-    visit('/')
-    click_button 'View Bookmark List'
-    expect(page).to have_content('List of Bookmarks')
+    visit('/bookmarks')
+    # click_button 'View Bookmark List'
+    expect(page).to have_content "http://www.makersacademy.com"
+    expect(page).to have_content "http://www.destroyallsoftware.com"
+    expect(page).to have_content "http://www.google.com"
   end
 end
