@@ -3,7 +3,6 @@
     "coverage": {
       "/Users/shwetapatil/Desktop/week-4/Bookmark-Manager/spec/bookmark_spec.rb": [
         1,
-        1,
         null,
         1,
         1,
@@ -19,6 +18,14 @@
         null,
         1,
         1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         1,
         null,
         null,
@@ -36,7 +43,6 @@
         null
       ],
       "/Users/shwetapatil/Desktop/week-4/Bookmark-Manager/spec/features/viewing_bookmarks_spec.rb": [
-        1,
         1,
         1,
         1,
@@ -60,6 +66,6 @@
         null
       ]
     },
-    "timestamp": 1538045552
+    "timestamp": 1538046390
   }
 }

@@ -1,4 +1,3 @@
-require 'pg'
 feature 'Viewing the bookmarks' do
   scenario 'visiting the index page' do
     visit('/')
