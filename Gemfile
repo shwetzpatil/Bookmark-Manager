@@ -9,7 +9,7 @@ gem 'rake'
 gem 'rubocop'
 gem 'shotgun'
 gem 'sinatra'
-
+gem 'sinatra-flash'
 group :test do
   gem 'capybara'
   gem 'rspec'

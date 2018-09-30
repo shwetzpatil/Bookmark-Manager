@@ -1,16 +1,21 @@
 require 'sinatra/base'
 require './lib/bookmark'
+require 'uri'
+require 'sinatra/flash'
+require './database_connection_setup'
+
 
 # this is the controller class
 class BookmarkManager < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb(:index)
   end
 
   get '/bookmarks' do
-    p ENV
+    # p ENV
     @bookmarks = Bookmark.all
     erb :bookmarks
   end
@@ -19,18 +24,15 @@ class BookmarkManager < Sinatra::Base
     erb :"bookmarks/new"
   end
 
+  post '/bookmarks' do
+    flash[:notice] = "You must submit a valid URL." unless Bookmark.create(url: params['url'], title: params[:title])
+    redirect('/bookmarks')
+  end
+  
   # post '/bookmarks' do
-  #   p "Form data submitted to the /bookmarks route!"
-  #   url = params['url']
-  #   connection = PG.connect(dbname: 'bookmark_manager_test')
-  #   connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}')")
+  #   Bookmark.create(url: params['url'])
   #   redirect '/bookmarks'
   # end
-  
-  post '/bookmarks' do
-    Bookmark.create(url: params['url'])
-    redirect '/bookmarks'
-  end
   
   run! if app_file == $0
 end
